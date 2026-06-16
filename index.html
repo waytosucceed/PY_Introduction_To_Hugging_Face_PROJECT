@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width: device-width, initial-scale=1.0">
+    <title>PROJECT</title>
+    <link rel="icon" type="image/x-icon" href="Logo_last.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffde57;
+            text-align: center;
+            color: #333;
+            word-wrap: break-word;
+        }
+
+        .header {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 5px 30px;
+            background-color: white;
+            text-align: left;
+        }
+
+        .logo {
+            width: 5%;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .header-image {
+            width: 30%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            margin: 1rem 2rem;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin: 20px 2rem;
+            margin-bottom: 0 !important;
+        }
+
+        .highlight {
+            background: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .image-container {
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        ol {
+            li {
+                margin-bottom: 0.7rem;
+            }
+        }
+
+        .instruction-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .instruction-img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Style for hidden image */
+        .hidden-image {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img src="./logo/Logo.png" alt="Logo" class="logo" />
+        <img src="./logo/header.png" alt="Header" class="header-image" />
+    </header>
+    <p style="text-align: center; font-size: 1.7rem; font-weight: bold; margin-bottom: 0;margin-top: 0;">
+        <br>👉🏽<a href="https://github.com/WayToSucceed-Coding/school_transport_dataset.git" target="_blank" class="">Data Set</a>
+    </p>
+    <div class="container">
+
+        <h1>AI Article Analyzer</h1>
+        <p style="font-size: 1.5rem;text-align: left;">
+In this project, you will build a program that analyses an article using pre-trained Transformer models. Your program will perform two tasks — summarise the article using a pre-trained summarisation model and then analyse the sentiment of the generated summary. This project demonstrates how multiple NLP tasks can be combined to analyse long text automatically.        </p>
+    
+
+<p style="font-size: 1.5rem;text-align: left;color: blueviolet;">
+
+<b>Step 1: Create the Project Folder</b></p>
+<ul style="font-size: 1.5rem;text-align: left;" ><li>Create a new folder called <b>article_analyzer</b> and open it in <b>Visual Studio Code.</b></li></ul>
+<p style="font-size: 1.5rem;text-align: left;color: blueviolet;"><b>Step 2: Create the .env File</b></p>
+<ul style="font-size: 1.5rem;text-align: left;"><li>Create a new file in your project folder called <b>.env</b> and add the following line, replacing the placeholder with your actual Hugging Face API token:
+<br>HF_TOKEN=your_token_here</li></ul>
+<p style="font-size: 1.5rem;text-align: left;color: blueviolet;"><b>Step 3: Load the Token</b></p>
+<ul style="font-size: 1.5rem;text-align: left;"><li>Create a new Python file called <b>main.py</b> in the same folder.</li>
+<li>Import <b>load_dotenv</b> from the dotenv library and import Python's built-in <b>os</b> module.</li>
+<li>Call the <b>load_dotenv()</b> function to load the variables from your <b>.env</b> file.</li>
+<li>Use the <b>getenv()</b> function of the os module, passing <b>'HF_TOKEN'</b> as the argument, to read the token and store it in a variable called <b>HF_TOKEN.</b></li>
+<li>Add a check to print <b>Token loaded successfully</b> if <b>HF_TOKEN</b> is not None, or <b>Token not found</b> if it is None.</li>
+</ul>
+
+
+<p style="font-size: 1.5rem;text-align: left;color: blueviolet;"><b>Step 4: Create the Inference Client</b></p>
+<ul style="font-size: 1.5rem;text-align: left;"><li>Import <b>InferenceClient</b> from the <b>huggingface_hub</b> library.</li>
+<li>Create a client object by calling <b>InferenceClient()</b> and passing <b>token=HF_TOKEN </b>as the parameter. Store it in a variable called <b>client</b>.</li>
+</ul>
+<p style="font-size: 1.5rem;text-align: left;color: blueviolet;"><b>Step 5: Take Article Input</b></p>
+<ul style="font-size: 1.5rem;text-align: left;"><li>Print the following message: Paste your article below and press Enter twice when finished.</li>
+<li>Create an empty list called <b>lines.</b></li>
+<li>Write a <b>while True</b> loop that reads one line of input at a time using <b>input() </b>and appends each line to <b>lines.</b> Inside the loop, write an <b>if</b> statement that checks whether the line is empty using <b>line == ' '</b> and breaks out of the loop if it is.</li>
+<li>Use <b>' '.join(lines)</b> to combine all the lines into a single string and store it in a variable called <b>text.</b></li>
+</ul>
+<p style="font-size: 1.5rem;text-align: left;color: blueviolet;"><b>Step 6: Generate a Summary</b></p>
+<ul style="font-size: 1.5rem;text-align: left;"><li>Use the <b>summarization() </b>method of the <b>client</b> object, passing <b>text</b> as the first argument and <b>model='facebook/bart-large-cnn'</b> as the second argument. Store the result in <b>result.</b></li>
+<li>Access <b>result['summary_text']</b> to extract the generated summary and store it in a variable called <b>summary.</b></li>
+<li>Print the summary.</li>
+</ul>
+<p style="font-size: 1.5rem;text-align: left;color: blueviolet;"><b>Output:</b></p>
+
+<div style="justify-content: center; display: flex; "> <img width="65%" src="./images/Image_72.gif" alt=""></div>
+
+
+
+
+
+
+
+        
+        
+       
+
+
+      
+       
+
+        <br><div style="display: flex; justify-content: center;margin-bottom: 2%; gap: 10%;font-size: 1.7rem;">
+            <!-- <a href="https://colab.research.google.com/drive/1LaKhG9BGBcy0WEWNLKWynY8kVQEjQ-sE?usp=sharing" target="_blank" class="button">👉 
+                Let's Start</a> -->
+            <!-- <a href="https://github.com/WayToSucceed-Coding/book_dataset.git" target="_blank"
+                class="button"> 👉 Dataset</a> -->
+        </div>
+
+   
+
+    </div>
+
+    <script>
+        // Get the image and button elements
+
+        var image1 = document.getElementById("sampleImage1");
+
+        var button = document.getElementById("showImageBtn");
+
+        // When the user clicks the button, toggle the visibility of both images
+        button.onclick = function () {
+            if (image1.style.display === "none" || image1.style.display === "") {
+
+                image1.style.display = "block"; // Show the second image
+            } else {
+
+                image1.style.display = "none"; // Hide the first image
+                // Hide the second image
+            }
+        }
+    </script>
+
+</body>
+
+</html>
